@@ -1,0 +1,398 @@
+html{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+body{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+#root{
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+
+
+
+
+
+
+.main{
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: flex
+;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    --s: 60px;
+    --c1: rgb(183, 226, 25);
+    --c2: #DFF886;
+
+
+    --c1: rgb(133, 165, 16);
+    --c2: #aabd68;
+    --_g: radial-gradient(
+      25% 25% at 25% 25%,
+      var(--c1) 99%,
+      rgba(0, 0, 0, 0) 101%
+    );
+    background: var(--_g) var(--s) var(--s) / calc(2 * var(--s))
+        calc(2 * var(--s)),
+      var(--_g) 0 0 / calc(2 * var(--s)) calc(2 * var(--s)),
+      radial-gradient(50% 50%, var(--c2) 98%, rgba(0, 0, 0, 0)) 0 0 / var(--s)
+        var(--s),
+      repeating-conic-gradient(var(--c2) 0 50%, var(--c1) 0 100%)
+        calc(0.5 * var(--s)) 0 / calc(2 * var(--s)) var(--s);
+}
+.center{
+    height: fit-content;
+    width: 90%;
+    display: flex
+;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    row-gap: 10px;
+    align-content: flex-start;
+
+
+
+
+
+
+    border: 8px solid #000;
+    background-color: #fff;
+    padding: 1.5rem;
+    box-shadow: 12px 12px 0 #000;
+    max-width: 1260px;
+}
+.header{
+    float: left;
+    height: fit-content;
+    width: fit-content;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+.headerTitle{
+    width: fit-content;
+    height: fit-content;
+    font-size: 40px;
+}
+.headerTitle p{
+    max-width: 600px;
+}
+.content{
+    float: left;
+    min-height: fit-content;
+    width: fit-content;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+}
+/*
+.quote{
+    width: 100%;
+    min-height: 300px;
+    background-color: blue;
+    float: left;
+}
+.quoteText{
+    width: 100%;
+    min-height: 200px;
+    background-color: green;
+    float: left;
+}
+.quoteTextTitle{
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 30px;
+    font-weight: 600;
+}
+.quoteTextContent{
+    width: 100%;
+    min-height: 200px;
+    height: fit-content;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 30px;
+    font-weight: 600;
+}
+.quoteCharacter{
+    width: 50%;
+    min-height: 100px;
+    background-color: red;
+    float: left;
+}
+.quoteCharacterTitle{
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 8px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 27px;
+    font-weight: 600;
+}
+.quoteCharacterContent{
+    width: 100%;
+    min-height: 50px;
+    height: fit-content;
+    margin: 0;
+    font-weight: 600;
+    padding: 8px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 27px;
+}
+.quoteSeries{
+    width: 50%;
+    min-height: 100px;
+    background-color: pink;
+    float: left;
+}
+.quoteSeriesTitle{
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 8px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 27px;
+    font-weight: 600;
+}
+.quoteSeriesContent{
+    width: 100%;
+    min-height: 50px;
+    height: fit-content;
+    margin: 0;
+    font-weight: 600;
+    padding: 8px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    font-size: 27px;
+}
+
+
+
+*/
+.contentCenter{
+    width: fit-content;
+    height: fit-content;
+}
+.quoteButtonWrapper{
+    height: fit-content;
+    width: 100%;
+    display: flex
+;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.quoteButton{
+    height: fit-content;
+    width: fit-content;
+    float: right;
+    font-weight: 700;
+    display: block;
+    /* width: 100%; */
+    padding: 0.75rem;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: 3px solid #000;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    transition: all 0.2s ease;
+    box-shadow: 5px 5px 0 #000;
+    overflow: hidden;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+.quoteButton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.3),
+      transparent
+    );
+    transition: all 0.6s;
+  }
+  
+  .quoteButton:hover::before {
+    left: 100%;
+  }
+  
+  .quoteButton:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #000;
+  }
+  
+  
+  .quoteButton:hover {
+    background-color: #ffffff;
+    border-color: #000000;
+    color: #000000;
+    box-shadow: 7px 7px 0 #000000;
+  }
+  
+  .quoteButton:active {
+    transform: translate(5px, 5px);
+    box-shadow: none;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.quoteCard {
+    min-width: 300px;
+    max-width: 400px;
+    height: fit-content;
+    background: rgb(183, 226, 25);
+    font-family: inherit;
+    position: relative;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.quote {
+    color: rgb(223, 248, 134);
+    padding-left: 30px;
+    position: relative;
+    height: fit-content;
+    position: absolute;
+    z-index: 0;
+    /* top: 150px; */
+    bottom: 10px;
+    right: 25px;
+}
+.quote svg{
+    height: 150px;
+    width: 150px;
+}
+
+.quoteCardName {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(127, 155, 29);
+    padding: 30px;
+    line-height: 34px;
+    font-size: 37px;
+    min-height: 50px;
+    padding-bottom: 10px;
+}
+
+.quoteText {
+    font-size: 37px;
+    font-weight: 900;
+    padding: 20px 40px 0;
+    color: #465512;
+    position: relative;
+    /* top: 50px; */
+    /* left: 10px; */
+    line-height: 37px;
+    height: fit-content;
+    z-index: 2;
+    padding-bottom: 10px;
+}
+.quoteAuthor {
+  margin-top: 5px;
+  opacity: 0;
+  transition: 0.5s;
+  height: fit-content;
+  font-size: 23px;
+  padding-bottom: 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.quoteCard:hover .quoteAuthor {
+  opacity: 1;
+}
+
+.pic {
+    width: 60px; /* Increased size to better fit the new card size */
+    height: 60px; /* Increased size to better fit the new card size */
+    background-color: rgb(158, 196, 21);
+    border-radius: 50%;
+}
+
+
+
+.quoteAuthor {
+    font-weight: 700;
+    color: rgb(127, 155, 29);
+    padding-left: 30px;
+    height: fit-content;
+    font-size: 23px;
+    margin-bottom: 30px;
+}
+
+.quoteCard .quoteAuthor svg {
+    display: inline;
+    font-size: 14px; /* Slightly larger icon */
+    color: rgba(128, 155, 29, 0.452);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+    .headerTitle h2 {
+      margin-top: 0px;
+    }
+  }
