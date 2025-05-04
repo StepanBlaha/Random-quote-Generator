@@ -2,27 +2,35 @@
 import Button from "../../components/Button";
 import styles from "./index.module.css"
 import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
 
 
+// Fetch the data
+const fetchQuote = async()=>{
+    const response = await fetch('http://localhost:5000/api/quote')
+    const data = await response.json();
+    return{
+        quote: data.quote.data.content,
+        character: data.quote.data.character.name,
+        series: data.quote.data.anime.name,
+    }
+}
 
 export default function AnimeQuotes(){
-    const [quote, setQuote] = useState("");
-    const [character, setCharacter] = useState("");
-    const [series, setSeries] = useState("");
-
-    const generateQuote = () =>{
-        fetch('http://localhost:5000/api/quote')
-        .then((response) => response.json())
-        .then((quote) => {
-            console.log(quote)
-            setQuote(quote.quote.data.content)
-            setCharacter(quote.quote.data.character.name)
-            setSeries(quote.quote.data.anime.name)
-            console.log(quote.quote.data.anime.name)
-        }); 
-    }
-
-
+    // data - returned data
+    // refetch - the function to call
+    // isFetching - true when still fetching - usefull for replacing with loader
+    // error - if query fails contains error
+    // The names can be custom using this format -  data: quoteData
+    const { data, refetch, isFetching, error } = useQuery({
+        queryKey: ['animeQuote'], // Key - something like id
+        queryFn: fetchQuote, // Callback function
+        enabled: false, // Stops the query from running on page load
+      });
+      // Variables with fallback values
+      const quote = data?.quote || "";
+      const character = data?.character || "";
+      const series = data?.series || "";
 
 
 
@@ -55,7 +63,7 @@ export default function AnimeQuotes(){
                         </div>
                         <div className={styles.quoteButtonWrapper}>
 
-                        <Button className={styles.quoteButton} onClick={generateQuote}>Generate</Button>
+                        <Button className={styles.quoteButton} onClick={()=>refetch()}>Generate</Button>
                         </div>
                     </div>
                 </div>
@@ -65,78 +73,5 @@ export default function AnimeQuotes(){
     )
 }
 
-/*
-
-import Button from "../../components/Button";
-import styles from "./index.module.css"
-import React, { useEffect, useState } from 'react';
-
-
-
-export default function AnimeQuotes(){
-    const [quote, setQuote] = useState("");
-    const [character, setCharacter] = useState("");
-    const [series, setSeries] = useState("");
-
-    const generateQuote = () =>{
-        fetch('http://localhost:5000/api/quote')
-        .then((response) => response.json())
-        .then((quote) => {
-            console.log(quote)
-            setQuote(quote.quote.data.content)
-            setCharacter(quote.quote.data.character.name)
-            setSeries(quote.quote.data.anime.name)
-            console.log(quote.quote.data.anime.name)
-        }); 
-    }
-
-
-
-
-
-
-    return(
-        <>
-        <div className={styles.main}>
-            <div className={styles.center}>
-                <div className={styles.header}>
-                    <div className={styles.headerTitle}>
-                        <h2>Random Anime Quote</h2>
-                    </div>
-                </div>
-
-                <div className={styles.content}>
-
-                    <div className={styles.quote}>
-                        <div className={styles.quoteText}>
-                            <p className={styles.quoteTextTitle}>Quote:</p>
-                            <p className={styles.quoteTextContent}>{quote}</p>
-                        </div>
-                        <div className={styles.quoteCharacter}>
-                            <p className={styles.quoteCharacterTitle}>Character:</p>
-                            <p className={styles.quoteCharacterContent}>{character}</p>
-                        </div>
-                        <div className={styles.quoteSeries}>
-                            <p className={styles.quoteSeriesTitle}>Series:</p>
-                            <p className={styles.quoteSeriesContent}>{series}</p>
-                        </div>
-                    </div>
-                    <Button className={styles.quoteButton} onClick={generateQuote}/>
-
-                </div>
-            </div>
-        </div>
-        </>
-    )
-}
-
-
-
-
-
-
-
-
-*/
 
 
