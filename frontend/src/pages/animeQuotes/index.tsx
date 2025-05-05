@@ -7,7 +7,8 @@ import { useQuery } from '@tanstack/react-query';
 
 // Fetch the data
 const fetchQuote = async()=>{
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/quote`)
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/quote`);
+    console.log(process.env.REACT_APP_BACKEND_URL);
     const data = await response.json();
     return{
         quote: data.quote.data.content,
