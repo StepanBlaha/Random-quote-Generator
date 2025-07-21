@@ -2,7 +2,7 @@
 Small project i made while learning fetching from external APIs and react folder structure.
 
 ## Disclaimer
-There are sometimes issues with the backend hosting so after loading and trying to generate a quote, if it doesnt show up wait a few minutes and try to reload the page. Thanks!
+Backend hosted on Render has a few minute cold start so after first request you might have to wait a minute. Thanks!
 
 ## Deployment
 Frontend deployed at Vercel => ([Vercel Deployment](https://randomquote.stepanblaha.com/))<br>
